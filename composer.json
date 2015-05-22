@@ -1,0 +1,14 @@
+{
+  "name": "blanketastronomer/yaml-to-manifest",
+  "description": "Generates a valid SugarCRM/SuiteCRM manifest file from yaml.",
+  "require": {
+    "mustangostang/spyc": "~0.5.1"
+  },
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "blanketastronomer",
+      "email": "blanketastronomer@users.noreply.github.com"
+    }
+  ]
+}
