@@ -1,5 +1,7 @@
 <?php
 
+require_once 'vendor/autoload.php';
+
 class ManifestGenerator {
     private $manifest_array;
     private $generated_manifest;
@@ -23,15 +25,20 @@ class ManifestGenerator {
      */
     public function addSection($section_name)
     {
-        $this->generated_manifest .= '$'
+        $this->generated_manifest .= "\n$"
             . $section_name
             . ' = '
             . var_export($this->manifest_array[$section_name], true)
             . ";\n";
     }
 
-    public function generate()
+    public function generate($path='manifest.yml')
     {
-        return $this->generated_manifest;
+        $file_contents = <<<FILE
+<?php
+$this->generated_manifest
+?>
+FILE;
+        file_put_contents($path, $file_contents);
     }
 }
