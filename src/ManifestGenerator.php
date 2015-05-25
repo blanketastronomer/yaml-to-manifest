@@ -2,6 +2,7 @@
 
 class ManifestGenerator {
     private $manifest_array;
+    private $generated_manifest;
 
     /**
      * Constructor.
@@ -10,6 +11,7 @@ class ManifestGenerator {
      */
     public function __construct($yaml_file){
         $this->manifest_array = Spyc::YAMLLoad($yaml_file);
+        $this->generated_manifest = '';
     }
 
     /**
@@ -21,6 +23,15 @@ class ManifestGenerator {
      */
     public function addSection($section_name)
     {
-        return '$' . $section_name . ' = ' . var_export($this->manifest_array[$section_name], true) . ';';
+        $this->generated_manifest .= '$'
+            . $section_name
+            . ' = '
+            . var_export($this->manifest_array[$section_name], true)
+            . ";\n";
+    }
+
+    public function generate()
+    {
+        return $this->generated_manifest;
     }
 }

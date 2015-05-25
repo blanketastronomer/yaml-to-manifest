@@ -35,12 +35,14 @@ $manifest = array (
   'readme' => '<path_to_readme>',
   'version' => '@@VERSION@@',
 );
+
 MANIFEST;
     }
 
     public function testAddsManifestSection()
     {
-        $this->assertEquals($this->manifest_section, $this->generator->addSection('manifest'));
+        $this->generator->addSection('manifest');
+        $this->assertEquals($this->manifest_section, $this->generator->generate());
     }
 }
 
