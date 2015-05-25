@@ -13,3 +13,37 @@ manifest:
   published_date: @@PUBLISH_DATE@@
   readme: <path_to_readme>
   version: @@VERSION@@
+
+installdefs:
+  id: <module_id>
+  layoutdefs: []
+  relationships: []
+  image_dir: <basepath>/icons
+  copy:
+    0:
+      from: <basepath>/SugarModules/modules/<module_name>
+      to: modules/<module_name>
+    1:
+      from: <basepath>/SugarModules/Extension
+      to: custom/Extension
+  language:
+    0:
+      from: <basepath>/SugarModules/language/en_us.lang.php
+      to_module: <module_name>
+      language: en_us
+  logic_hooks:
+    0: &logic_hook_defaults
+      module: <module_name>
+      hook: <logic_hook_type>
+      order: <execution_order>
+      description: <logic_hook_description>
+      file: <logic_hook_path>
+      class: <logic_hook_class>
+      function: <logic_hook_function>
+    1:
+      <<: *logic_hook_defaults
+      hook: <overridden_logic_hook_type>
+      file: <overridden_logic_hook_path>
+    2:
+      <<: *logic_hook_defaults
+      module: <overridden_module_name>
