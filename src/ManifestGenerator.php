@@ -1,7 +1,5 @@
 <?php
 
-require_once 'vendor/autoload.php';
-
 class ManifestGenerator {
     private $manifest_array;
     private $generated_manifest;

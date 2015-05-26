@@ -13,5 +13,8 @@
       "name": "blanketastronomer",
       "email": "blanketastronomer@users.noreply.github.com"
     }
-  ]
+  ],
+  "autoload": {
+    "files": [ "src/ManifestGenerator.php" ]
+  }
 }

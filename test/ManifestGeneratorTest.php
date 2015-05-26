@@ -1,7 +1,5 @@
 <?php
 
-require 'src/ManifestGenerator.php';
-
 class ManifestGeneratorTest extends PHPUnit_Framework_TestCase
 {
     protected $generator;
