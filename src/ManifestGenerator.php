@@ -30,7 +30,7 @@ class ManifestGenerator {
             . ";\n";
     }
 
-    public function generate($path='manifest.yml')
+    public function generate($path='manifest.php')
     {
         $file_contents = <<<FILE
 <?php
